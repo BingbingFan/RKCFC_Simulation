@@ -1,0 +1,4 @@
+scenario_id,block,arm,d_level,K_true,K_fit_max,note
+K01,krecovery,2,hard,1,5,"true K = 1. Silhouette is UNDEFINED at K = 1; a value of 0 there is a convention and must be labelled as one"
+K02,krecovery,2,hard,2,5,true K = 2
+K03,krecovery,2,hard,3,5,"true K = 3. Report the full DISTRIBUTION of the selected K, not the mode"

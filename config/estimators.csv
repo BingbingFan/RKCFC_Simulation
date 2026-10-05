@@ -1,0 +1,6 @@
+estimator_id,label,robust,note
+E0,PACE covariance,FALSE,the non-robust floor; the estimator KCFC uses
+E1,Kendall tau,TRUE,the proposal
+E1M,Kendall tau + robust mean,TRUE,"PACKAGE ITEM 1, built 2026-09-07. E1 scatter with the mean estimated by a local-linear M-estimator (Huber IRLS) instead of local-linear least squares. It exists because the 2026-09-07 estimation block measured the gap it closes: on the tail arms the eigenfunction angles hold at ~6 degrees for BOTH E0 and E1 while mean_err degrades IDENTICALLY for both (arm 4: 0.609 against 0.652) from ~0.24 on the Gaussian arm. Kendall tau protects the eigenspace and does nothing for the mean, because the mean is least squares. E1M against E1 isolates that and nothing else - same scatter, same everything, one estimator swapped."
+E2,spherical / spatial-sign,TRUE,"Gervini, adapted to the sparse design using the same Nadaraya-Watson device Eq. (5) already uses. Signs deviations from a location rather than pairwise differences. PACKAGE ITEM 2 - not yet built"
+E3,rank + PACE,FALSE,"normal-scores marginal transform then PACE. Cheap and different in kind. NOTE it changes the estimand, not only the estimator. PACKAGE ITEM 3 - not yet built"

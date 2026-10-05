@@ -1,0 +1,13 @@
+scenario_id,block,arm,d_level,note
+A01,core,1,hard,
+A02,core,2,hard,
+A03,core,3,hard,
+A04,core,4,hard,
+A05,core,5,hard,
+A06,core,6,hard,
+A07,core,1,easy,
+A08,core,2,easy,
+A09,core,3,easy,
+A10,core,4,easy,
+A11,core,5,easy,
+A12,core,6,easy,

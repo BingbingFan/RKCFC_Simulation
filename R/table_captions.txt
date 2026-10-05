@@ -1,0 +1,127 @@
+# Caption split for every manuscript table:
+# the caption keeps only the table's name, without a final period; the rest of
+# what the caption used to say becomes the start of the note under the table.
+# Read by R/table_captions.R, which both table generators source.
+#
+# One block per table:
+#   @@ <id>
+#   TITLE <the new caption; {{n}} inserts capture group n of MATCH>
+#   MATCH <perl regex, anchored at the start of the caption the generator builds>
+#   LEAD  <replaces the matched text at the head of the note; {{n}} as above>
+# Whatever follows the match is kept word for word after LEAD. A caption that
+# does not match its MATCH stops the build, so an edit to a caption in a
+# generator cannot silently produce a wrong split.
+#
+# TITLE lines give a formal, precise title that states what is tabulated, for
+# which methods, and under which conditions, in one sentence without a colon. MATCH and LEAD are
+# unchanged, so the notes are unaffected.
+
+@@ tab01
+TITLE Design of the simulation study, with the six distributional arms of the core grid, the realized number of observations per subject, and the number of replicates
+MATCH ^Simulation design\.\s*
+LEAD
+
+@@ tab02
+TITLE Median adjusted Rand index of the seven clustering methods on the core simulation grid by distributional arm and separation
+MATCH ^Clustering accuracy on the core grid: median
+LEAD Entries are the median
+
+@@ tab03
+TITLE Relative error of the class mean, angles between estimated and true eigenfunctions, and canonical correlation of the scores for five eigenspace estimators fitted under the true partition, by distributional arm
+MATCH ^Estimation accuracy under the \\emph\{true\} partition, removing the clustering loop
+LEAD Fitting each class under the true partition removes the clustering loop
+
+@@ tab04
+TITLE Distribution of the number of classes selected by three criteria for RKCFC and KCFC over 50 replicates at a true $K$ of 1, 2, and 3
+MATCH ^Recovery of the number of clusters\.\s*
+LEAD
+
+@@ tab05
+TITLE True-curve, held-out, and in-sample relative reconstruction errors of RKCFC, KCFC, and KCFC on log-transformed data on the core simulation grid, by distributional arm and separation
+MATCH ^Relative reconstruction error on the core grid, median over 100 replicates\.
+LEAD Entries are medians over 100 replicates.
+
+@@ tab06
+TITLE Class sizes, stopping cause, relative reconstruction errors, and agreement among random starts for RKCFC and KCFC fitted to the CEA cohort on the original and the logarithmic scale
+MATCH ^Both methods on both scales, CEA cohort \(\$n = (\d+)\$, 0--(\d+) months, \$K = (\d+)\$, (\S+) random starts per fit, the smallest objective retained\)\.
+LEAD The cohort has $n = {{1}}$ patients observed over 0--{{2}} months; each fit used $K = {{3}}$ and {{4}} random starts, and the smallest objective was retained.
+
+@@ tab07
+TITLE Hazard of death in the {{1}} class relative to the {{2}} class in the CEA cohort from Cox proportional hazards models with time from surgery and from the 36-month landmark
+MATCH ^Hazard of death in the (\S+) class relative to the (\S+) class \((RKCFC on [^,]+), ([^)]*)\), Cox proportional hazards models, ([^.]*)\.
+LEAD Classes are from {{3}}; estimates are from Cox proportional hazards models with {{5}}.
+
+@@ tabS1
+TITLE Tuning parameters and implementation settings of the simulation study with the value used and the basis for each
+MATCH ^Tuning parameters and implementation settings of the simulation study, read from the configuration tables shipped with the package\.
+LEAD Values are read from the configuration tables shipped with the package.
+
+@@ tabS2
+TITLE Robust Mahalanobis distance $\Delta$ between the two class score distributions in the pilot study by distributional arm and mean offset $d$, with the reference classification rate
+MATCH ^Robust Mahalanobis separation \$\\Delta\$ between the two class score distributions, by arm and mean offset, over 20 replicates\.
+LEAD Values are given by arm and mean offset, over 20 replicates.
+
+@@ tabS3
+TITLE Stopping cause, failures, median iteration count, and median computing time per fit for the seven methods on the core simulation grid
+MATCH ^Convergence and computational cost on the core grid, over all 1200 cells\.
+LEAD Counts are over all 1200 cells.
+
+@@ tabS4
+TITLE Frequency and size of the increases in the objective $J$ at the re-estimation step, cycles, and iteration counts for RKCFC and KCFC on four distributional arms
+MATCH ^Behavior of the objective \$J\$ across iterations, 50 replicates\.
+LEAD Summaries are over 50 replicates.
+
+@@ tabS5
+TITLE Median adjusted Rand index, success proportion, and convergence rate of RKCFC and KCFC when one factor of the reference design is varied at a time on the Fleishman(0, 4) and $t_{1.5}$ arms
+MATCH ^Variations on the baseline design: one factor moved at a time, 50 replicates each,
+LEAD One factor is moved at a time, with 50 replicates each,
+
+@@ tabS6
+TITLE Clustering accuracy, convergence, iteration count, and reconstruction error of RKCFC on the Fleishman(0, 4) arm when the number of retained components is fixed or selected by the fraction of variance explained
+MATCH ^Retained components\.
+LEAD Summaries are over 50 replicates on the Fleishman(0, 4) arm at $d = 1.5$.
+
+@@ tabS7
+TITLE Clustering accuracy, convergence rate, and number of replicates returning a fit for six initialization schemes of RKCFC on the Gaussian and $t_{1.5}$ arms
+MATCH ^Initialization schemes, 50 replicates\.
+LEAD Summaries are over 50 replicates at $d = 1.5$.
+
+@@ tabS8
+TITLE Clustering accuracy, convergence rate, and success proportion of RKCFC on the Gaussian, Fleishman, and $t_{1.5}$ arms when the subject-level bandwidth $h'$ is halved or doubled and when the mean function is estimated by a local linear M-estimator
+MATCH ^Bandwidth sensitivity and the mean estimator, 50 replicates\.
+LEAD Summaries are over 50 replicates at $d = 1.5$.
+
+@@ tabS9
+TITLE Clustering accuracy, convergence rate, success proportion, and computing time per fit when Kendall's $\tau$, the spatial-sign estimator, or conventional FPCA on normal scores supplies the eigenspace inside the clustering loop, by distributional arm
+MATCH ^Robust estimators swapped inside the clustering loop, 50 replicates\.
+LEAD Summaries are over 50 replicates at $d = 1.5$.
+
+@@ tabS10
+TITLE Classification accuracy and convergence of RKCFC and KCFC at the full sample size for the candidate separations of the pilot study, by arm and mean offset $d$
+MATCH ^Pilot confirmation at the full sample size, 20 replicates\.
+LEAD Summaries are over 20 replicates.
+
+@@ tabS11
+TITLE Baseline characteristics, CEA summaries, and follow-up of the analyzed colorectal cancer cohort ($n = {{1}}$) by vital status at the end of follow-up
+MATCH ^Baseline characteristics of the analyzed cohort \(\$n = (\d+)\$\) by vital status at the end of follow-up\.
+LEAD
+
+@@ tabS12
+TITLE Baseline characteristics, CEA summaries, follow-up, and deaths of the analyzed colorectal cancer cohort by class of the reported partition ({{1}})
+MATCH ^Baseline characteristics of the analyzed cohort by trajectory class \((RKCFC on [^,]+), ([^)]*)\)\.
+LEAD Classes are from {{1}}.
+
+@@ tabS16
+TITLE Partition, stability, and survival association of the 36-month and the 18-month clustering window on the log scale
+MATCH ^The 36-month and 18-month clustering windows compared\.
+LEAD
+
+@@ tabStudies
+TITLE Overview of the simulation studies, with what each varies, its arms, separations, methods, replicates, and fits, and the table that reports it
+MATCH ^Overview of the simulation studies\.\s*
+LEAD
+
+@@ tabCCR
+TITLE Correct classification rate of the seven clustering methods on the core simulation grid by distributional arm and separation
+MATCH ^Correct classification rate on the core grid: median
+LEAD Entries are the median

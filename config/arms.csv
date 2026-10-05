@@ -1,0 +1,7 @@
+arm,label,score_arm,error_dist,contaminate,skew,ex_kurt,moments,elliptical,note
+1,Gaussian,1,gaussian,FALSE,0,0,all finite,TRUE,"reference: the efficiency cost of robustness where it buys nothing"
+2,"Fleishman(0, 4)",2,gaussian,FALSE,0,4,all finite,FALSE,"the CORRECTED original SN(0,4): symmetric leptokurtosis, a pure heavy-tail case carrying no skewness. Not elliptical, so the eigenspace theory gives no guarantee - report it anyway"
+3,"Fleishman(1.5, 4)",3,gaussian,FALSE,1.5,4,all finite,FALSE,"the CORRECTED original SN(1.5,4): asymmetry at the same kurtosis. Not elliptical and skewed"
+4,"t, nu = 1.5",6,gaussian,FALSE,0,Inf,VARIANCE INFINITE,TRUE,"no covariance exists, so Z is a SCATTER matrix here. Say so in Methods. Elliptical, so expect the largest win: the moment estimator has no population target at all"
+5,t3 measurement error,1,t3,FALSE,NA,NA,"scores all finite",TRUE,"scores are GAUSSIAN; the departure is in the errors. eps = 0.088181 * t3, which is exactly 0.1 * IQR_SCALE[5], the same calibration the score arms use. Matched on IQR this puts 1.94 percent of errors beyond 3x IQR against 0.01 percent for Gaussian"
+6,curve contamination,1,gaussian,TRUE,NA,NA,"scores all finite",FALSE,"scores are GAUSSIAN; the departure is in the trajectories. 5 percent of subjects get an additive outlying trajectory at 3x the within-class RMS. SCALE contamination, not label contamination - the subject keeps its true class so accuracy stays well defined"

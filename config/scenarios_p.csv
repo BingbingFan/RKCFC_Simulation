@@ -1,0 +1,7 @@
+scenario_id,block,arm,d,note
+P01,pilot,1,0,"shape-only floor. The classes differ in eigenfunctions (sines against cosines) as well as in means, so they stay separable at d = 0: RKCFC reaches 0.925 there. REPORTED WHATEVER ELSE HAPPENS - it quantifies how much of the separation d never controlled, and it doubles as the mean-identical variation"
+P02,pilot,1,1.5,"d_hard, confirming the adopted value at full n and replicate count"
+P03,pilot,1,2,"d_easy AS IT NOW STANDS. Was 3 until 2026-09-05: d_easy moved 3 -> 2 on the univariate Delta sweep and this row was left behind, so the pilot would have confirmed a value the core grid no longer uses while never touching d = 2. Caught in the 2026-09-05 design audit"
+P04,pilot,4,0,shape-only floor under infinite variance
+P05,pilot,4,1.5,d_hard on the hardest arm
+P06,pilot,4,2,"d_easy on the hardest arm. Was 3; see P03"

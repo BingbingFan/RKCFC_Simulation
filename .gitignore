@@ -1,0 +1,14 @@
+# Outputs of the studies and the table generator
+results/
+tables/
+figures/
+# Real-data outputs hold a class label for every patient and are never committed
+results_real*/
+*.rds
+# A study-local package library
+lib/
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
